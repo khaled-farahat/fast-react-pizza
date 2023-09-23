@@ -1,13 +1,9 @@
-import {
-  useNavigate,
-  useRouteError,
-  isRouteErrorResponse,
-} from "react-router-dom";
+import { useRouteError, isRouteErrorResponse } from 'react-router-dom';
+import LinkButton from './LinkButton';
 
 function ErrorPage() {
-  const navigate = useNavigate();
   const error = useRouteError();
-  let message = "Something went wrong 😢";
+  let message = 'Something went wrong 😢';
 
   if (isRouteErrorResponse(error)) {
     message = error.data;
@@ -19,7 +15,7 @@ function ErrorPage() {
     <div>
       <h1>Something went wrong 😢</h1>
       <p>{message}</p>
-      <button onClick={() => navigate(-1)}>&larr; Go back</button>
+      <LinkButton to="-1">&larr; Go back</LinkButton>
     </div>
   );
 }
