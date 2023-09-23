@@ -1,5 +1,15 @@
+import { ActionFunctionArgs, ParamParseKey, Params } from "react-router-dom";
+
+const PathNames = {
+  orderDetails: "/order/:orderId",
+} as const;
+
+export interface orderDetailsArgs extends ActionFunctionArgs {
+  params: Params<ParamParseKey<typeof PathNames.orderDetails>>;
+}
+
 export type CartItem = {
-  pizzaId: number;
+  pizzaId: string;
   name: string;
   quantity: number;
   unitPrice: number;
@@ -7,7 +17,7 @@ export type CartItem = {
 };
 
 export type Pizza = {
-  id: number;
+  id: string;
   name: string;
   unitPrice: number;
   ingredients: string[];
@@ -15,5 +25,18 @@ export type Pizza = {
   imageUrl: string;
 };
 
+export type Order = {
+  id: string;
+  status: string;
+  customer: string;
+  phone: string;
+  address: string;
+  priority: boolean;
+  estimatedDelivery: string;
+  orderPrice: number;
+  priorityPrice: number;
+  position: string;
+  cart: CartItem[];
+};
 
 export type MenuItem = Pizza;
