@@ -14,3 +14,6 @@ export type Pizza = {
   soldOut: boolean;
   imageUrl: string;
 };
+
+
+export type MenuItem = Pizza;
