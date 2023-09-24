@@ -1,7 +1,9 @@
-import { ActionFunctionArgs, ParamParseKey, Params } from "react-router-dom";
-
+import { ActionFunctionArgs, ParamParseKey, Params } from 'react-router-dom';
+import { AnyAction } from 'redux';
+import { RootState } from '@/store';
+import { ThunkAction } from 'redux-thunk';
 const PathNames = {
-  orderDetails: "/order/:orderId",
+  orderDetails: '/order/:orderId',
 } as const;
 
 export interface orderDetailsArgs extends ActionFunctionArgs {
@@ -43,8 +45,36 @@ export type MenuItem = Pizza;
 
 export type UserState = {
   username: string;
-}
+  status: 'idle' | 'loading' | 'error';
+  position: Position | null;
+  address: string;
+  error: string;
+};
 
 export type CartState = {
   cart: CartItem[];
+};
+
+export type AppThunk<ReturnType = void> = ThunkAction<
+  ReturnType,
+  RootState,
+  unknown,
+  AnyAction
+>;
+
+export interface Position {
+  latitude: number;
+  longitude: number;
+}
+
+export interface Address {
+  locality: string;
+  city: string;
+  postcode: string;
+  countryName: string;
+}
+
+export interface UserLocation {
+  position: Position;
+  address: string;
 }
