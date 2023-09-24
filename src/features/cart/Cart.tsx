@@ -2,6 +2,7 @@ import Button from '@/ui/Button';
 import LinkButton from '@/ui/LinkButton';
 import CartItem from './CartItem';
 import { CartItem as CartItemType } from '@/types';
+import { useAppSelector } from '@/hooks';
 
 const fakeCart: CartItemType[] = [
   {
@@ -29,12 +30,13 @@ const fakeCart: CartItemType[] = [
 
 function Cart() {
   const cart = fakeCart;
+  const username = useAppSelector((state) => state.user.username);
 
   return (
     <div className="px-4 py-3">
       <LinkButton to="/menu">&larr; Back to menu</LinkButton>
 
-      <h2 className="mt-7 text-xl font-semibold">Your cart, %NAME%</h2>
+      <h2 className="mt-7 text-xl font-semibold">Your cart, {username}</h2>
 
       <ul className="mt-3 divide-y divide-stone-200 border-b">
         {cart.map((item) => (
@@ -42,11 +44,11 @@ function Cart() {
         ))}
       </ul>
 
-      <div className='mt-6 space-x-2'>
+      <div className="mt-6 space-x-2">
         <Button type="primary" to="/order/new">
           Order pizzas
         </Button>
-        <Button type='secondary'>Clear cart</Button>
+        <Button type="secondary">Clear cart</Button>
       </div>
     </div>
   );
