@@ -9,7 +9,7 @@ export interface orderDetailsArgs extends ActionFunctionArgs {
 }
 
 export type CartItem = {
-  pizzaId: string;
+  pizzaId: number;
   name: string;
   quantity: number;
   unitPrice: number;
