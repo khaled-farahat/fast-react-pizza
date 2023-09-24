@@ -17,7 +17,7 @@ export type CartItem = {
 };
 
 export type Pizza = {
-  id: string;
+  id: number;
   name: string;
   unitPrice: number;
   ingredients: string[];
@@ -43,4 +43,8 @@ export type MenuItem = Pizza;
 
 export type UserState = {
   username: string;
+}
+
+export type CartState = {
+  cart: CartItem[];
 }
