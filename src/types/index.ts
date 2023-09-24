@@ -40,3 +40,7 @@ export type Order = {
 };
 
 export type MenuItem = Pizza;
+
+export type UserState = {
+  username: string;
+}
