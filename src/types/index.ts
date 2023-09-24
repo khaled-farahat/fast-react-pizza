@@ -1,7 +1,4 @@
 import { ActionFunctionArgs, ParamParseKey, Params } from 'react-router-dom';
-import { AnyAction } from 'redux';
-import { RootState } from '@/store';
-import { ThunkAction } from 'redux-thunk';
 const PathNames = {
   orderDetails: '/order/:orderId',
 } as const;
@@ -54,13 +51,6 @@ export type UserState = {
 export type CartState = {
   cart: CartItem[];
 };
-
-export type AppThunk<ReturnType = void> = ThunkAction<
-  ReturnType,
-  RootState,
-  unknown,
-  AnyAction
->;
 
 export interface Position {
   latitude: number;
