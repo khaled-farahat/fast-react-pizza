@@ -6,6 +6,7 @@ import { calcMinutesLeft, formatCurrency, formatDate } from '@/utils/helpers';
 import { orderDetailsArgs, Order as OrderType, Pizza } from '@/types';
 import OrderItem from './OrderItem';
 import { useFetcher, useLoaderData } from 'react-router-dom';
+import UpdateOrder from './UpdateOrder';
 
 function Order() {
   const order = useLoaderData() as OrderType;
@@ -16,8 +17,6 @@ function Order() {
     // use loader without navigation to menu
     if (!fetcher.data && fetcher.state === 'idle') fetcher.load('/menu');
   }, [fetcher]);
-
-  console.log(fetcher.data);
 
   // Everyone can search for all orders, so for privacy reasons we're gonna gonna exclude names or address, these are only for the restaurant staff
   const {
@@ -86,6 +85,7 @@ function Order() {
           To pay on delivery: {formatCurrency(orderPrice + priorityPrice)}
         </p>
       </div>
+      {!priority && <UpdateOrder order={order} />}
     </div>
   );
 }
