@@ -34,7 +34,7 @@ pizza ordering application that allows users to easily select and order pizzas f
 
 ## 🚀 Live Demo
 
-[fast-react-pizza](https://vuetify-todo-kh.netlify.app/)
+[fast-react-pizza](https://fast-react-pizza-ts.netlify.app)
 
 ## 📸 Screenshots
 
